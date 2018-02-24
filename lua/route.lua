@@ -10,6 +10,10 @@ local methods = {}
 methods[ 'GET' ] = ngx.HTTP_GET
 methods[ 'POST' ] = ngx.HTTP_POST 
 local res = ngx.location.capture(
-    "/index.php", { args = args, method = methods[ngx.var.request_method] }
+    "/new_c/web/index.php", { args = args, method = methods[ngx.var.request_method] }
 )
+if res.body == '404' then
+    ngx.say('404')
+end
 ngx.var.target = res.body
+-- ngx.say(res.body)
