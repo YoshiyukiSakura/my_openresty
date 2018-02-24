@@ -12,5 +12,4 @@ methods[ 'POST' ] = ngx.HTTP_POST
 local res = ngx.location.capture(
     "/index.php", { args = args, method = methods[ngx.var.request_method] }
 )
-ngx.var.target = 'www.newdun.com'
--- ngx.print(res.body)
+ngx.var.target = res.body
